@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+    glassfish:
+        container_name: glassfish
+        build: ./docker/images/glassfish
+        ports:
+            - "8080:8080"
+            - "4848:4848"
+        volumes:
+            - ./target/generated-builded-files:/opt/glassfish5/glassfish/domains/domain1/autodeploy/
