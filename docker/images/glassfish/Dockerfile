@@ -8,7 +8,6 @@ RUN mkdir /srv/applications
     
 COPY ./lib/glassfish-5.0.1.zip /tmp
 COPY ./deploy.sh /tmp
-COPY ./lib/hello.war /srv/applications/
 
 RUN chmod +x /tmp/deploy.sh
 
