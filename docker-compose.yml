@@ -8,3 +8,9 @@ services:
             - "4848:4848"
         volumes:
             - ./target/generated-builded-files:/opt/glassfish5/glassfish/domains/domain1/autodeploy/
+    postgres:
+        container_name: postgres
+        build: ./docker/images/postgres
+        environment:
+            POSTGRES_PASSWORD: dev_password_1508
+        
