@@ -19,9 +19,9 @@ public class EndpointTest {
 		Connection conn = null;
 		ResponseBuilder response = null;
 	
-		try{
+		try {
             Class.forName("org.postgresql.Driver");     
-		} catch(ClassNotFoundException e) {
+		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
