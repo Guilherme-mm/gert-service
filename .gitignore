@@ -4,6 +4,8 @@
 .DS_Store
 target/**
 
+.vscode
+
 # exclude everything
 data/*
 
