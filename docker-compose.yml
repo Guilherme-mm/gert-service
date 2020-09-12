@@ -9,8 +9,10 @@ services:
             - "8080:8080"
             - "8181:8181"
             - "4848:4848"
+            - "9009:9009"
         environment:
             DEPLOY_PROPS: --properties=force=true
+            PAYARA_ARGS: --debug
     postgres:
         container_name: postgres
         build: ./docker/images/postgres

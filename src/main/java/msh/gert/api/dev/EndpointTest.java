@@ -26,11 +26,11 @@ public class EndpointTest {
 		}
 		
 		try {
-			conn = DriverManager.getConnection("jdbc:postgresql://postgres/gert", "postgres", "dev_password_1508");
+			conn = DriverManager.getConnection("jdbc:postgresql://postgres/postgres", "postgres", "dev_password_1508");
 			response = Response.ok("Connection Successfull");
 		} catch (Exception e) {
 			e.printStackTrace();
-			response = Response.ok("OK");
+			response = Response.ok(e.getMessage());
 		}
 		
 		return response.build();
