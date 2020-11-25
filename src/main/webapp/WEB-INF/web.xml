@@ -5,12 +5,4 @@
 	      version="3.0">
 
 	<display-name>GERT</display-name>
-
-	<data-source>
-		<name>java:app/gert/postgresDatasource</name>
-		<class-name>org.postgresql.ds.PGConnectionPoolDataSource</class-name>
-		<initial-pool-size>10</initial-pool-size>
-		<max-pool-size>50</max-pool-size> 
-		<min-pool-size>10</min-pool-size>
-	  </data-source>
 </web-app>
