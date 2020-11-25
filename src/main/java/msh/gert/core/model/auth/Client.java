@@ -5,6 +5,10 @@ public class Client {
     private String name;
     private String secret;
     private ClientTypes type;
+    private ResourceOwner resourceOwner;
+
+    public Client(){
+    }
 
     public String getId() {
         return this.id;
@@ -33,4 +37,12 @@ public class Client {
     public void setType(ClientTypes type) {
         this.type = type;
     }
+
+    public ResourceOwner getResourceOwner() {
+        return this.resourceOwner;
+    }
+    public void setResourceOwner(ResourceOwner resourceOwner){
+        this.resourceOwner = resourceOwner;
+    }
+
 }
