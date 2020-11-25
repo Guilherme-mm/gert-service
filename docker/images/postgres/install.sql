@@ -41,7 +41,7 @@ CREATE TABLE authentication.client_tb (
     id uuid DEFAULT public.uuid_generate_v4(),
     secret character varying(35) NOT NULL DEFAULT md5(random()::text),
     name character varying(200),
-    resource_owner integer
+    resource_owner integer NOT NULL
 );
 ALTER TABLE authentication.client_tb OWNER TO postgres;
 
@@ -49,6 +49,7 @@ ALTER TABLE authentication.client_tb OWNER TO postgres;
 CREATE TABLE authentication.resource_owner_tb (
     id integer NOT NULL,
     name character varying(200),
+    username character varying (150) NOT NULL,
     password character varying(255)
 );
 ALTER TABLE authentication.resource_owner_tb OWNER TO postgres;
@@ -164,8 +165,9 @@ ALTER TABLE ONLY authentication.client_scope_as
 ALTER TABLE authentication.user_tb ADD CONSTRAINT user_tb_un UNIQUE (email);
 ALTER TABLE authentication.auth_services_data_tb ADD CONSTRAINT auth_services_data_tb_un UNIQUE (user_id,"name");
 
+
 -- Data filling
-INSERT INTO authentication.resource_owner_tb (name, password) VALUES ('rybius', 'admin');
+INSERT INTO authentication.resource_owner_tb (name, username, password) VALUES ('GERT Admin', 'gert-admin', 'admin');
 INSERT INTO authentication.client_tb (id, secret, name, resource_owner) VALUES ('e2cdbfb0-01a3-459f-82a7-32dbcf7d6798', '1b5fcd6d7b3a1b34838d333a0b404041', 'Rybius Web Client', 1);
 INSERT INTO authentication.client_tb (id, secret, name, resource_owner) VALUES ('c080c584-c82c-4ede-b13b-16dd644e9315', '3ba25538894baf64f1237a0f33743606', 'Rybius Dev Client', 1);
 INSERT INTO authentication.application_scope_tb (id, "name", description) VALUES('auth.client.accessToken.create', 'Create Access Token', 'Allows a client to create an access Token');
